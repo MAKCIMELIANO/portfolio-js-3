@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":["../src/main.js"],"sourcesContent":["console.log('Hello from main.js');\nconsole.log(2 + 2);\n"],"names":[],"mappings":"ssBAAA,QAAQ,IAAI,oBAAoB,EAChC,QAAQ,IAAI,CAAK"}
+{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
