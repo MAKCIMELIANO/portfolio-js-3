@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"index.js","sources":["../src/js/header.js"],"sourcesContent":["console.log('Hello from header.js');\n"],"names":[],"mappings":"ssBAAA,QAAQ,IAAI,sBAAsB"}
