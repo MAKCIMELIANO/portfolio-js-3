@@ -14,7 +14,7 @@
   <script type="module" crossorigin src="/portfolio-js-3/index.js"></script>
   <link rel="modulepreload" crossorigin href="/portfolio-js-3/assets/vendor-Dw3l7aHi.js">
   <link rel="stylesheet" crossorigin href="/portfolio-js-3/assets/vendor-CAlya0nZ.css">
-  <link rel="stylesheet" crossorigin href="/portfolio-js-3/assets/index-KY33SZMT.css">
+  <link rel="stylesheet" crossorigin href="/portfolio-js-3/assets/index-CImW4Joj.css">
 </head>
 
 <body>
@@ -94,16 +94,13 @@
     <section class="benefits container">
     <h1>Benefits</h1>
 </section>
-    <!-- <section class="projects container">
-    <h1>Projects</h1>
-</section> -->
-
+    
 <section class="projects-section">
     <div class="container">
         <h2 class="section-title">Projects</h2>
-        <div class="swiper">
-        <ul class="projects-list">
-            <li class="projects-item">
+        <div class="swiper mySwiper">
+        <ul class="projects-list swiper-wrapper">
+            <li class="projects-item swiper-slide">
                 <div class="section-content">
                     <div class="white-div">
                         <ul class="stack-list">
@@ -119,24 +116,21 @@
                             target="_blank"
                             class="link"
                             >See project
-                                <!-- <svg class="icon" height="24" width="24">
-                                <use href="./images/icons.svg#icon-instagram"></use>
-                                </svg> -->
                             </a>
                         </button>
                     </div>
                     <div class="black-div">
-                        <!-- <img 
-                        src="../img/img-1@1x.jpg" 
-                        srcset="../img/img-1@1x.jpg 1x, ../img/img-1@2x.jpg 2x"
+                        <img 
+                        src="../img/Projects/1-read-jornal-1x.jpg" 
+                        srcset="../img/Projects/1-read-jornal-1x.jpg 1x, ../img/Projects/1-read-jornal-2x.jpg 2x"
                         class="project-image" 
                         alt="first-project-reading"
-                        width="614"> -->
+                        width="614">
                         
                     </div>
                 </div>
             </li>
-            <li class="projects-item">
+            <li class="projects-item swiper-slide">
                 <div class="section-content">
                     <div class="white-div">
                         <ul class="stack-list">
@@ -149,16 +143,16 @@
                         <button class="see-project-btn" type="button" name="see-project">See project</button>
                     </div>
                     <div class="black-div">
-                        <!-- <img 
-                        src="../img/img-2@1x.jpg" 
-                        srcset="../img/img-2@1x.jpg 1x, ../img/img-2@2x.jpg 2x"
+                        <img 
+                        src="../img/Projects/2-petlove-1x.jpg" 
+                        srcset="../img/Projects/2-petlove-1x.jpg 1x, ../img/Projects/2-petlove-2x.jpg 2x"
                         class="project-image" 
                         alt="first-project-pet"
-                        width="614"> -->
+                        width="614">
                     </div>
                 </div>
             </li>
-            <li class="projects-item">
+            <li class="projects-item swiper-slide">
                 <div class="section-content">
                     <div class="white-div">
                         <ul class="stack-list">
@@ -171,30 +165,42 @@
                         <button class="see-project-btn" type="button" name="see-project">See project</button>
                     </div>
                     <div class="black-div">
-                        <!-- <img 
-                        src="../img/img-1@1x.jpg" 
-                        srcset="../img/img-3@1x.jpg 1x, ../img/img-3@2x.jpg 2x"
+                        <img 
+                        src="../img/Projects/3-vocabBuilder-1x.jpg" 
+                        srcset="../img/Projects/3-vocabBuilder-1x.jpg 1x, ../img/Projects/3-vocabBuilder-2x.jpg 2x"
                         class="project-image" 
                         alt="first-project-vocabbuilder"
-                        width="614"> -->
+                        width="614">
                     </div>
                 </div>
             </li>
         </ul>
         
-        <div class="swiper-btns">
-            <button class="swiper-button-next">Next
-                <!-- <svg class="arrow-narrow-next" height="32" width="32">
-                    <use href="../img/symbol-defs.svg#arrow-narrow-next"></use>
-                  </svg> -->
+        <!-- <div class="swiper-btns">
+            <button class="swiper-button-next next">                
             </button>
-            <button class="swiper-button-prev">Prev
-                <!-- <svg class="arrow-narrow-prev" height="32" width="32">
-                    <use href="../img/symbol-defs.svg#arrow-narrow-prev"></use>
-                  </svg> -->
+            <button class="swiper-button-prev prev">                
             </button>
+        </div> -->
         </div>
-        </div>
+        
+        <div class="slide-btns">
+            <button class="prev-slide" disabled> 
+                <svg class="arrow-narrow-prev" height="32" width="32">
+                    <use href="../icon.svg#icon-arrow-narrow-left">
+
+                    </use>
+                </svg>
+            </button>
+        <button class="next-slide">
+            <svg class="arrow-narrow-next" height="32" width="32">
+                <use href="../icon.svg#icon-arrow-narrow-right">
+
+                </use>
+            </svg>
+        </button>
+        
+    </div>
     </div>
 </section>
 
