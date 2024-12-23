@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/portfolio-js-3/assets/jefferson-min-BWcOdP0t.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PORTFOLIO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,9 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <script type="module" crossorigin src="/portfolio-js-3/index.js"></script>
-  <link rel="modulepreload" crossorigin href="/portfolio-js-3/assets/vendor-Dw3l7aHi.js">
-  <link rel="stylesheet" crossorigin href="/portfolio-js-3/assets/vendor-CAlya0nZ.css">
-  <link rel="stylesheet" crossorigin href="/portfolio-js-3/assets/index-C1KnqdNr.css">
+  <link rel="modulepreload" crossorigin href="/portfolio-js-3/assets/vendor-CvJA1xiU.js">
+  <link rel="stylesheet" crossorigin href="/portfolio-js-3/assets/vendor-Dcd77bN9.css">
+  <link rel="stylesheet" crossorigin href="/portfolio-js-3/assets/index-CAv36zbW.css">
 </head>
 
 <body>
@@ -94,8 +94,131 @@
   </div>
 </section>
 
-    <section class="about container">
-    <h1>About</h1>
+    <section class="about container" id="about">
+    <h1 class="title visually-hidden">About</h1>
+    <div class="title-container">
+        <div class="text-container">
+            <p class="about-text">
+                I work with people all over the world to create 
+                impressive and <span class="text-red">functional</span> 
+                <span class="text-gray">websites</span> that reflect 
+                each client's unique
+                personality.
+            </p>
+        </div>
+        <div class="photo-container">
+            <picture>
+                <source 
+                srcset="../img/About_me/About_me_desk/about_me_desk-min.jpg ../img/About_me/About_me_desk/about_me_desk_2x-min.jpg"
+                media="(min-width: 1440px)"
+                width="680"
+                />
+                <source srcset="../img/About_me/About_me_tab/about_me_tab.jpg ../img/About_me/About_me_tab/about_me_tab_2x.jpg" 
+                media="(min-width: 768px)" 
+                width="704" 
+                />
+                <source srcset="../img/About_me/About_me_mob/about_me_mob-min.jpg ../img/About_me/About_me_mob/about_me_mob_2x-min.jpg" 
+                media="(max-width: 767px)" 
+                width="343" 
+                />
+                <img 
+                class="photo" 
+                src="../img/About_me/About_me_desk/about_me_desk-min.jpg" 
+                alt="my-photo"
+                width="680"
+                height="700">
+            </picture>
+        </div>
+    </div>
+    <!--ACCORDION-->
+    <div class="accordion">
+        <div class="accordion-item open">
+            <span class="accordion-title">ABOUT MY</span>
+            <button class="accordion-btn">
+                <svg class="icon-down" width="20" height="20" stroke="#FAFAFA">
+                    <use href="../icon.svg#icon-Icon-down"></use>
+                </svg>
+                <svg class="icon-upp" width="20" height="20" stroke="#FAFAFA">
+                    <use href="../icon.svg#icon-Icon-upp"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="accordion-content">
+            <p class="accordion-text">
+                I am Lloyd Jefferson, a talented programmer with extensive expertise in software development. I have an understanding of
+                different programming languages ​​and technologies, always ready to improve my skills. I always follow the latest trends
+                and look for unconventional, creative solutions to problems. I have a high level of analytical skills and am able to
+                effectively solve even the most difficult tasks encountered on the way.
+            </p>
+            <p class="accordion-text">
+                Able to work both independently and in a team. I can effectively cooperate with colleagues, exchanging ideas and finding
+                optimal solutions. Professional maturity allows you to calmly cope with challenges and stressful situations, while
+                maintaining a high quality of work.I am always looking for opportunities for self-improvement. I actively study new
+                technologies and practices to stay abreast of the latest innovations. I have a strong understanding of various
+                programming languages, frameworks and architectural concepts that allow me to create efficient and scalable software.
+            </p>
+        </div>
+    
+        <div class="accordion-item">
+            <span class="accordion-title">ROLE</span>
+            <button class="accordion-btn">
+                <svg class="icon-down" width="20" height="20" stroke="#FAFAFA">
+                    <use href="../icon.svg#icon-Icon-down"></use>
+                </svg>
+                <svg class="icon-upp" width="20" height="20" stroke="#FAFAFA">
+                    <use href="../icon.svg#icon-Icon-upp"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="accordion-content">
+            <p class="accordion-text">Frontend development</p>
+            <p class="accordion-text">HeadlessCMS,Wordpress</p>
+            <p class="accordion-text">Blender(enjoy)</p>
+        </div>
+    
+        <div class="accordion-item">
+            <span class="accordion-title">EDUCATION</span>
+            <button class="accordion-btn">
+                <svg class="icon-down" width="20" height="20" stroke="#FAFAFA">
+                    <use href="../icon.svg#icon-Icon-down"></use>
+                </svg>
+                <svg class="icon-upp" width="20" height="20" stroke="#FAFAFA">
+                    <use href="../icon.svg#icon-Icon-upp"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="accordion-content">
+            <p class="accordion-text">
+                2018 - 2019 / Frontend Development Diploma, GoIT IT School, New York
+            </p>
+            <p class="accordion-text">
+                2019 - 2020 / Advanced Web Development Certificate, GoIT IT School, New York
+            </p>
+            <p class="accordion-text">
+                2020 - 2022 / Advanced Blender Animation Techniques, Udemy
+            </p>
+        </div>
+        
+    </div>
+
+
+    <!--SWIPER-->
+    <div class="skills-container">
+        <ul class="skills-list">
+            <li class="skill active">HTML/CSS</li>
+            <li class="skill">JavaScript</li>
+            <li class="skill">React</li>
+            <li class="skill">Node.js</li>
+            <li class="skill">React Native</li>
+            <li class="skill">Soft Skills</li>
+        </ul>
+        
+        <button class="arrow-button" aria-label="Next skill">
+            <svg class="icon-skill" width="40" height="40" stroke="#3B3B3B">
+            <use href="../icon.svg#icon-arrow-narrow-right1"></use>
+        </svg></button>
+    </div>
+
 </section>
     <section class="benefits container">
     <h1>Benefits</h1>
