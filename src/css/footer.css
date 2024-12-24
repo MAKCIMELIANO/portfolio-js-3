@@ -76,10 +76,7 @@
 
   color: rgba(250, 250, 250, 0.6);
 }
-.footer-input::placeholder:hover,
-.footer-input::placeholder:focus {
-  color: #fafafa;
-}
+
 .footer-input::placeholder:hover,
 .footer-input::placeholder:focus {
   color: #fafafa;
@@ -106,10 +103,7 @@
 }
 
 
-.footer-btn-send:hover,
-.footer-btn-send:focus {
-  background-color: #e0373f;
-}
+
 
 .footer-contacts {
   display: flex;
@@ -143,10 +137,7 @@
   border: 1px solid #fafafa;
 }
 
-.footer-list-link:hover,
-.footer-list-link:focus {
-  border: 1px solid #fafafa;
-}
+
 
 .footer-link-contacts {
   font-family: sans-serif;
@@ -235,12 +226,7 @@
     padding-left: 196px;
   }
 
-  .footer {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    padding-left: 196px;
-  }
+ 
 
   .footer-item-form {
     margin-right: 68px;
@@ -251,10 +237,7 @@
     width: 390px;
     padding: 54px;
   }
-  .footer-input {
-    width: 390px;
-    padding: 54px;
-  }
+
 }
 
 /* #endregion desk*/
