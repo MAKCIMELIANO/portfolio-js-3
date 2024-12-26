@@ -54,8 +54,6 @@
 
 
 
-
-
 .accordion {
     display: flex;
     align-items: flex-start;
@@ -63,7 +61,7 @@
     flex-direction: column;
     gap: 20px;
     width: 343px;
-    margin: 0, auto;
+    
     padding-bottom: 32px;
     border-bottom: 1px solid rgba(250, 250, 250, 0.2);
     overflow: hidden;
@@ -283,7 +281,7 @@ TABLET
     .accordion {
         gap: 32px;
         width: 704px;
-        margin: 0, auto;
+        
     }
 
     .accordion-item {
@@ -360,7 +358,7 @@ DESKTOP
 
     .accordion {
         width: 1376px;
-        margin: 0, auto;
+        
     }
 
     .accordion-item {

@@ -1,241 +1,190 @@
-@import url('./base.css');
-
-.reviews {
-  width: 375px;
-  /* height: 570px; */
-  padding-top: 64px;
-  background-color: var(--background-section-color);
-  margin: 0 auto;
-}
-
-@media screen and (min-width: 768px) {
-  .reviews {
-    width: 768px;
-    /* height: 650px; */
-    padding-top: 96px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .reviews {
-    width: 1440px;
-    /* height: 786px; */
-    padding-top: 164px;
-  }
-}
-
-.reviews-container {
-  width: 344px;
-  height: 442px;
-  padding: 0 auto;
-}
-
-@media screen and (min-width: 768px) {
-  .reviews-container {
-    width: 704px;
-    height: 458px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .reviews-container {
-    width: 1376px;
-  }
-}
-
 .reviews-title {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: rgba(250, 250, 250, 0.4);
-  margin-bottom: 32px;
+    color: rgba(250, 250, 250, 0.40);
+
+    font-family: "Inter Tight";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5;
+    /* 150% */
+    letter-spacing: -0.32px;
+
+    margin-bottom: 32px;
 }
 
-.reviews-swiper {
-  width: 344px;
-  height: 386px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+.reviews-list {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Убираем перенос */
+    gap: 0;
+    /* Убираем gap */
+    margin: 0;
+    /* Убираем внешние отступы */
+    padding: 0;
+    /* Убираем внутренние отступы */
 }
 
-@media screen and (min-width: 768px) {
-  .reviews-swiper {
-    width: 704px;
-    height: 402px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .reviews-swiper {
-    width: 1376px;
-    height: 402px;
-  }
-}
-.reviews-wrapper {
-  width: 344px;
-  height: 302px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  /* gap: 16px; */
-  overflow: hidden;
-}
-
-@media screen and (min-width: 768px) {
-  .reviews-wrapper {
-    width: 704px;
+.review-item {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(250, 250, 250, 0.20);
+    width: 332px;
     height: 302px;
-  }
+
 }
 
-@media screen and (min-width: 1440px) {
-  .reviews-wrapper {
-    width: 1376px;
-  }
+.review-author {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 8px;
 }
 
-.reviews-item {
-  border: 1px solid rgba(250, 250, 250, 0.2);
-  border-radius: 20px;
-  padding: 32px 24px;
-  width: 344px;
-  height: 302px;
-  backface-visibility: hidden;
+.review-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
 }
 
-@media screen and (min-width: 768px) {
-  .reviews-item {
-    width: calc(100% - 16px) / 2;
-  }
+.review-author-name {
+    color: var(--text-white-color);
+
+    /* Desktop_tablet/H5 */
+    font-family: "Inter Tight";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    /* 150% */
+    letter-spacing: -0.4px;
 }
 
-@media screen and (min-width: 1440px) {
-  .reviews-item {
-    width: calc(100% - (16px * 3)) / 4;
-  }
+.review-text {
+    color: rgba(250, 250, 250, 0.60);
+
+    /* Desktop_tablet/Main text */
+    font-family: "Inter Tight";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    /* 150% */
+    letter-spacing: -0.32px;
+
+    overflow: hidden;
+    /* Скрываем лишний текст */
+    text-overflow: ellipsis;
+    /* Добавляем многоточие для обрезанного текста */
+    display: -webkit-box;
+    /* Необходимый стиль для использования webkit */
+    -webkit-line-clamp: 6;
+    /* Ограничиваем количество линий */
+    -webkit-box-orient: vertical;
 }
 
-.reviews-img {
-  border-radius: 10px;
-  margin-bottom: 32px;
+/* Стили для Swiper */
+.swiper-container {
+    width: 100%;
+    height: 100%;
 }
 
-.reviews-name {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: var(--text-white-color);
-  margin-bottom: 8px;
+.swiper-wrapper {
+    display: flex;
+    flex-direction: row;
 }
 
-.reviews-text {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: rgba(250, 250, 250, 0.6);
-  width: calc(100%-32px);
-  height: 120px;
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    width: 332px;
+    /* Устанавливаем фиксированную ширину слайда */
+    height: auto;
+    margin-right: 16px;
+    /* Добавляем отступ между слайдами */
 }
+
+/* Убираем отступы и выравниваем контейнер */
+.reviews-list {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Убираем перенос */
+    gap: 0;
+    /* Убираем gap */
+    margin: 0;
+    /* Убираем внешние отступы */
+    padding: 0;
+    /* Убираем внутренние отступы */
+}
+
+.swiper-pagination {
+    display: none;
+}
+
+/* bottoms */
 
 .reviews-swiper-btns {
-  width: 116px;
-  height: 52px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 32px;
-  margin-bottom: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    gap: 12px;
+    padding-bottom: 64px;
 }
 
-@media screen and (min-width: 768px) {
-  .reviews-swiper-btns {
-    width: 156px;
-    height: 68px;
-  }
-}
-
-.reviews-swiper-button-prev {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  border: 1px solid rgba(250, 250, 250, 0.2);
-  border-radius: 60px;
-  padding: 12px;
-  width: 52px;
-  height: 52px;
-  bottom: -30px;
-  z-index: 10;
-  margin: 0 auto;
-  background-color: transparent;
-}
-
+.reviews-swiper-button-prev,
 .reviews-swiper-button-next {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  border: 1px solid rgba(250, 250, 250, 0.2);
-  border-radius: 60px;
-  padding: 14px;
-  width: 52px;
-  height: 52px;
-  bottom: -30px;
-  z-index: 10;
-  overflow: hidden;
-  margin: 0 auto;
-  background-color: transparent;
-}
-
-@media screen and (min-width: 768px) {
-  .reviews-swiper-button-prev,
-  .reviews-swiper-button-next {
-    padding: 18px;
-    width: 68px;
-    height: 68px;
-  }
+    border: 1px solid rgba(250, 250, 250, 0.2);
+    border-radius: 60px;
+    padding: 14px;
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+    transition: border-color 0.3s ease, stroke 0.3s ease, color 0.3s ease;
+    /* Добавляем плавный переход */
 }
 
 .reviews-arrow-prev,
 .reviews-arrow-next {
-  stroke: #3b3b3b;
-  color: #3b3b3b;
-  fill: none;
-  display: block;
-  overflow: visible;
-  visibility: visible;
-  opacity: 1;
+    fill: none;
+    stroke: #3B3B3B;
+    color: #3B3B3B;
+    display: block;
+    overflow: visible !important;
+    visibility: visible;
+    opacity: 1;
+    width: 24px;
+    height: 24px;
+    transition: stroke 0.3s ease, color 0.3s ease;
+    /* Добавляем плавный переход */
 }
 
-.active {
-  border: 1px solid rgba(250, 250, 250, 0.5);
-  stroke: var(--text-white-color);
-  color: var(--text-white-color);
-  fill: none;
+.reviews-swiper-button-prev.active,
+.reviews-swiper-button-next.active {
+    border-color: white;
 }
 
-.active-arr {
-  stroke: var(--text-white-color);
-  color: var(--text-white-color);
-  fill: none;
-  display: block;
-  overflow: visible;
-  visibility: visible;
-  opacity: 1;
+.reviews-swiper-button-prev.active .reviews-arrow-prev,
+.reviews-swiper-button-next.active .reviews-arrow-next {
+    stroke: white;
+    color: white;
 }
 
-.not-found {
-  color: #e74c3c;
-  font-size: large;
+.reviews-swiper-button-prev.disabled,
+.reviews-swiper-button-next.disabled {
+    border-color: rgba(250, 250, 250, 0.2);
+}
+
+.reviews-swiper-button-prev.disabled .reviews-arrow-prev,
+.reviews-swiper-button-next.disabled .reviews-arrow-next {
+    stroke: #3B3B3B;
+    color: #3B3B3B;
+}
+
+.hidden-slide {
+    visibility: hidden;
+    position: absolute;
 }

@@ -1,140 +1,138 @@
 import Swiper from 'swiper/bundle';
-import 'swiper/swiper-bundle.css';
-import { Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import 'swiper/swiper-bundle.css'; // Импортируем все стили Swiper
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css/navigation'; // Импортируем стили для модуля Navigation
+import 'swiper/css/pagination'; // Импортируем стили для модуля Pagination
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-const container = document.querySelector('.reviews-wrapper');
-const prevButton = document.querySelector('.reviews-swiper-button-prev');
-const nextButton = document.querySelector('.reviews-swiper-button-next');
-// const swiperContainer = document.querySelector('.swiper');
-const prevArrow = document.querySelector('.reviews-arrow-prev');
-const nextArrow = document.querySelector('.reviews-arrow-next');
-
 const API_URL = 'https://portfolio-js.b.goit.study/api/reviews';
+
+const reviewsList = document.querySelector('.reviews-list');
 
 async function fetchReviews() {
   try {
     const response = await fetch(API_URL);
     if (!response.ok) {
-      throw new Error(response.statusText);
+      throw new Error('Network response was not ok');
     }
     const data = await response.json();
-
     renderReviews(data);
-    console.log(data);
+    initializeSwiper();
   } catch (error) {
-    console.log(error.message);
     iziToast.error({
       title: 'Error',
       message: 'Failed to fetch reviews',
-      position: 'topRight',
-      color: '#e74c3c',
     });
   }
 }
 
 function renderReviews(reviews) {
-  if (!reviews || reviews.length === 0) {
-    container.innerHTML = '<li class="not-found">Not found</li>';
-    return;
-  }
-  container.innerHTML = '';
-
-  reviews.forEach(review => {
-    const reviewHTML = `
-        <li class='reviews-item swiper-slide swiper-backface-hidden'>
-        <img class='reviews-img'src='${review.avatar_url}' alt ='${review.author}' width='48px' height='48px'>
-        <h3 class='reviews-name'>${review.author}</h3>
-        <p class='reviews-text'>${review.review}</p>
-        </li>
-        `;
-    container.insertAdjacentHTML('beforeend', reviewHTML);
-  });
-  const slides = document.querySelectorAll('.swiper-slide');
-
-  setTimeout(() => {
-    initializeSwiper();
-  }, 0);
+  const reviewsHtml = reviews
+    .map(
+      review => `
+        <div class="swiper-slide review-slide">
+          <li class="review-item" id="${review._id}">
+            <div class="review-author">
+              <img src="${review.avatar_url}" alt="Avatar of ${review.author}" class="review-avatar"/>
+              <h2 class="review-author-name">${review.author}</h2>
+            </div>
+            <p class="review-text">${review.review}</p>
+          </li>
+        </div>
+      `
+    )
+    .join('');
+  reviewsList.innerHTML = reviewsHtml;
 }
 
 function initializeSwiper() {
-  // if (!swiperContainer || !nextButton || !prevButton) {
-  //   console.error('Swiper elements are not available');
-  //   return;
-  // }
-
-  const swiper = new Swiper('.swiper', {
-    // direction: 'horizontal',
-    // loop: false,
-    modules: [Navigation],
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    allowTouchMove: true,
+  const swiper = new Swiper('.swiper-container', {
+    modules: [Navigation, Pagination],
+    loop: false, // Отключаем бесконечный цикл
+    slidesPerView: 4, // По умолчанию показывать 4 слайда
+    slidesPerGroup: 1, // Переключаем по одному слайду
+    spaceBetween: 16, // Расстояние между слайдами
     navigation: {
       nextEl: '.reviews-swiper-button-next',
       prevEl: '.reviews-swiper-button-prev',
     },
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
     },
     breakpoints: {
-      768: {
-        slidesPerView: 2,
-        slidesPerGroup: 1,
-        spaceBetween: 16,
-        allowTouchMove: true,
-      },
+      // when window width is >= 1440px
       1440: {
         slidesPerView: 4,
-        slidesPerGroup: 1,
+        slidesPerGroup: 1, // Переключаем по одному слайду
+        spaceBetween: 16,
+      },
+      // when window width is >= 768px
+      768: {
+        slidesPerView: 2,
+        slidesPerGroup: 1, // Переключаем по одному слайду
+        spaceBetween: 16,
+      },
+      // when window width is >= 375px
+      375: {
+        slidesPerView: 1,
+        slidesPerGroup: 1, // Переключаем по одному слайду
         spaceBetween: 16,
       },
     },
     on: {
-      reachEnd() {
-        nextButton.disabled = true;
-        nextButton.classList.remove('active');
-        nextArrow.classList.remove('active-arr');
-        prevButton.classList.add('active');
-        prevArrow.classList.add('active-arr');
+      slideChange: function () {
+        updateNavigationButtons(swiper);
+        updateSlideVisibility(swiper);
       },
-      reachBeginning() {
-        prevButton.disabled = true;
-        prevButton.classList.remove('active');
-        prevArrow.classList.remove('active-arr');
-        nextButton.classList.add('active');
-        nextArrow.classList.add('active-arr');
-      },
-      fromEdge() {
-        nextButton.disabled = false;
-        nextButton.classList.add('active');
-        nextArrow.classList.add('active-arr');
-        prevButton.disabled = false;
-        prevButton.classList.add('active');
-        prevArrow.classList.add('active-arr');
+      resize: function () {
+        updateSlideVisibility(swiper);
       },
     },
   });
 
-  nextButton.classList.add('active');
-  nextArroe.classList.add('active-arr');
-  prevButton.disabled = true;
-
-  // nextButton.addEventListener('click', () => {
-  //   swiper.slideNext();
-  // });
-
-  // prevButton.addEventListener('click', () => {
-  //   swiper.slidePrev();
-  // });
-  swiper.update();
+  // Обновляем состояние кнопок навигации и видимость слайдов при инициализации
+  updateNavigationButtons(swiper);
+  updateSlideVisibility(swiper);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetchReviews();
-});
+function updateSlideVisibility(swiper) {
+  const slides = swiper.slides;
+  const activeIndex = swiper.activeIndex;
+  const slidesPerView = swiper.params.slidesPerView;
+
+  slides.forEach((slide, index) => {
+    if (index >= activeIndex && index < activeIndex + slidesPerView) {
+      // Отображаем слайды, которые входят в текущий slidesPerView
+      slide.classList.remove('hidden-slide');
+    } else {
+      // Скрываем слайды, которые выходят за рамки текущего slidesPerView
+      slide.classList.add('hidden-slide');
+    }
+  });
+}
+
+function updateNavigationButtons(swiper) {
+  const nextButton = document.querySelector('.reviews-swiper-button-next');
+  const prevButton = document.querySelector('.reviews-swiper-button-prev');
+
+  if (swiper.isEnd) {
+    nextButton.classList.remove('active');
+    nextButton.classList.add('disabled');
+  } else {
+    nextButton.classList.remove('disabled');
+    nextButton.classList.add('active');
+  }
+
+  if (swiper.isBeginning) {
+    prevButton.classList.remove('active');
+    prevButton.classList.add('disabled');
+  } else {
+    prevButton.classList.remove('disabled');
+    prevButton.classList.add('active');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', fetchReviews);

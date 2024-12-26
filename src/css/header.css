@@ -13,6 +13,7 @@
 
 .header-logo-text {
     margin-bottom: auto;
+    margin-left: 8px;
     color: var(--text-white-color);
 }
 

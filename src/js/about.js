@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener("resize", () => {
-        // Reset index if the number of visible skills changes
         currentIndex = 0;
         updateActiveSkill();
     });

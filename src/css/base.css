@@ -32,8 +32,9 @@ html {
   scroll-behavior: smooth;
 }
 
-main {
-  max-width: 1440px;
+main,
+footer {
+  /* max-width: 1440px; */
   margin: 0 auto;
   background-color: var(--background-section-color);
 }
