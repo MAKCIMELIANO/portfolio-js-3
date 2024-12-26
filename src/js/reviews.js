@@ -92,34 +92,34 @@ function initializeSwiper() {
     on: {
       slideChange: function () {
         updateNavigationButtons(swiper);
-        updateSlideVisibility(swiper);
+        // updateSlideVisibility(swiper);
       },
       resize: function () {
-        updateSlideVisibility(swiper);
+        // updateSlideVisibility(swiper);
       },
     },
   });
 
   // Обновляем состояние кнопок навигации и видимость слайдов при инициализации
   updateNavigationButtons(swiper);
-  updateSlideVisibility(swiper);
+  // updateSlideVisibility(swiper);
 }
 
-function updateSlideVisibility(swiper) {
-  const slides = swiper.slides;
-  const activeIndex = swiper.activeIndex;
-  const slidesPerView = swiper.params.slidesPerView;
+// function updateSlideVisibility(swiper) {
+//   const slides = swiper.slides;
+//   const activeIndex = swiper.activeIndex;
+//   const slidesPerView = swiper.params.slidesPerView;
 
-  slides.forEach((slide, index) => {
-    if (index >= activeIndex && index < activeIndex + slidesPerView) {
-      // Отображаем слайды, которые входят в текущий slidesPerView
-      slide.classList.remove('hidden-slide');
-    } else {
-      // Скрываем слайды, которые выходят за рамки текущего slidesPerView
-      slide.classList.add('hidden-slide');
-    }
-  });
-}
+//   slides.forEach((slide, index) => {
+//     if (index >= activeIndex && index < activeIndex + slidesPerView) {
+//       // Отображаем слайды, которые входят в текущий slidesPerView
+//       slide.classList.remove('hidden-slide');
+//     } else {
+//       // Скрываем слайды, которые выходят за рамки текущего slidesPerView
+//       slide.classList.add('hidden-slide');
+//     }
+//   });
+// }
 
 function updateNavigationButtons(swiper) {
   const nextButton = document.querySelector('.reviews-swiper-button-next');
